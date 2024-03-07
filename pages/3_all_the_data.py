@@ -15,20 +15,7 @@ st.write("Pulling data from: https://api.exchangerate-api.com/v4/latest/USD")
 url = 'https://api.exchangerate-api.com/v4/latest/USD'
 result=get(url, timeout=3).json()
 
-# Convert rates data to DataFrame
-df = pd.DataFrame(result.get("rates"), index=["Rates"])
-
-# Display multi-select for choosing columns
-selected_columns = st.multiselect(
-    'Select columns to display:',
-    list(df.columns),
-    default=['USD', 'EUR', 'GBP']  # Default columns to display
-)
-
-# Filter DataFrame based on selected columns
-filtered_df = df[selected_columns]
-
-# Display the filtered DataFrame
 st.title("All the Data")
-st.write(filtered_df)
+st.table(result.get("rates"))
+
 
