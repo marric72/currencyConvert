@@ -1,11 +1,10 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from requests import get
 
-#Write text to the screen
-#original_title = '<p style="font-family:Courier; color:Blue; font-size: 20px;">Original image</p>'
-#st.markdown(original_title, unsafe_allow_html=True)
 
+#Write text to the screen with HTML markup
 title = '<p style="font-family:Courier; color:Blue; font-size: 30px;">CS399 Streamlit Test</p>'
 st.markdown(title, unsafe_allow_html=True)
 st.image("money.png", caption='Save your Money')
@@ -18,8 +17,6 @@ if len(n) > 0:
 	title = f'<p style="font-family:Courier; color:Blue; font-size: 20px;">Welcome {n}</p>'
 	st.markdown(title, unsafe_allow_html=True)
 
-from requests import get
-
 options = st.multiselect(
     'What are your biggest expenses?',
     ['Food', 'Rent', 'Car', 'Clothes', 'Electronics', 'Other'],
@@ -27,12 +24,10 @@ options = st.multiselect(
 
 st.markdown(options, unsafe_allow_html=True)
 
-#st.write('You selected favorite colors:<span style="color:black;">', options, "</span>")
-
-#st.write('You selected favorite colors:', options)
 
 st.write("  ")
 st.write(" -------------------------------------------- ")
+st.write("  ")
 
 st.write("Pulling data from: https://api.exchangerate-api.com/v4/latest/USD")
 url = 'https://api.exchangerate-api.com/v4/latest/USD'
