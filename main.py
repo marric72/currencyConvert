@@ -4,6 +4,13 @@ import numpy as np
 from requests import get
 
 
+st.set_page_config(
+    page_title="Currency Convert",
+    page_icon="💰️",
+)
+
+
+
 #Write text to the screen with HTML markup
 title = '<p style="font-family:Courier; color:Blue; font-size: 30px;">CS399 Streamlit Test</p>'
 st.markdown(title, unsafe_allow_html=True)
