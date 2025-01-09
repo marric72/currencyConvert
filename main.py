@@ -5,8 +5,8 @@ from requests import get
 
 
 st.set_page_config(
-    page_title="Currency Convert",
-    page_icon="💰️",
+    page_title="Capture The Flag",
+    page_icon="🚩",
 )
 
 
