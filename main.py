@@ -42,20 +42,24 @@ with col1:
 with col2:
     # Show feedback for file2
     if len(n2) > 0:
-        if n2 == 'FLG-456':  # Replace this with the actual flag for file2
+        if n2 == 'FLG-444':  
             feedback = f'<p style="font-family:Courier; color:Green; font-size: 20px;"><br>Correct!</p>'
             st.markdown(feedback, unsafe_allow_html=True)
         else:
             feedback = f'<p style="font-family:Courier; color:Red; font-size: 20px;"><br>Incorrect</p>'
             st.markdown(feedback, unsafe_allow_html=True)
-st.markdown(flag2, unsafe_allow_html=True)
-flag3='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in *file3: </p>'
-st.markdown(flag3, unsafe_allow_html=True)
-flag4='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file4: </p>'
-st.markdown(flag4, unsafe_allow_html=True)
-flag5='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in *file5: </p>'
-st.markdown(flag5, unsafe_allow_html=True)
-flag6='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file6: </p>'
-st.markdown(flag6, unsafe_allow_html=True)
-flag7='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in *file7*: </p>'
-st.markdown(flag7, unsafe_allow_html=True)
+col1, col2 = st.columns([3, 1])  # Adjust column ratio as needed
+with col1:
+    # Input box for flag3 entry
+    n2 = st.text_input("Enter the flag in *file3:")
+
+with col2:
+    # Show feedback for file3
+    if len(n2) > 0:
+        if n2 == 'FLG-936':  
+            feedback = f'<p style="font-family:Courier; color:Green; font-size: 20px;"><br>Correct!</p>'
+            st.markdown(feedback, unsafe_allow_html=True)
+        else:
+            feedback = f'<p style="font-family:Courier; color:Red; font-size: 20px;"><br>Incorrect</p>'
+            st.markdown(feedback, unsafe_allow_html=True)
+
