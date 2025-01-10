@@ -107,7 +107,7 @@ with col2:
         else:
             feedback = f'<p style="font-family:Courier; color:Red; font-size: 20px;"><br>Incorrect</p>'
             st.markdown(feedback, unsafe_allow_html=True)
-		col1, col2 = st.columns([3, 1])  # Adjust column ratio as needed
+	    col1, col2 = st.columns([3, 1])  # Adjust column ratio as needed
 with col1:
     # Input box for flag6 entry
     n2 = st.text_input("Enter the flag in *file7*:")
