@@ -24,15 +24,15 @@ st.markdown(instructions, unsafe_allow_html=True)
 
 flag1='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file1: </p>'
 st.markdown(flag1, unsafe_allow_html=True)
-flag2='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file1: </p>'
+flag2='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file2: </p>'
 st.markdown(flag2, unsafe_allow_html=True)
-flag3='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file1: </p>'
+flag3='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in *file3: </p>'
 st.markdown(flag3, unsafe_allow_html=True)
-flag4='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file1: </p>'
+flag4='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file4: </p>'
 st.markdown(flag4, unsafe_allow_html=True)
-flag5='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file1: </p>'
+flag5='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in *file5: </p>'
 st.markdown(flag5, unsafe_allow_html=True)
-flag6='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file1: </p>'
+flag6='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file6: </p>'
 st.markdown(flag6, unsafe_allow_html=True)
-flag7='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file1: </p>'
+flag7='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in *file7*: </p>'
 st.markdown(flag7, unsafe_allow_html=True)
