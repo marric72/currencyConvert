@@ -28,13 +28,26 @@ with col2:
     # Show feedback based on the user input
     if len(n) > 0:
         if n == 'FLG-123':
-            feedback = f'<p style="font-family:Courier; color:Green; font-size: 20px;">Correct!</p>'
+            feedback = f'<p style="font-family:Courier; color:Green; font-size: 20px;"><br>Correct!</p>'
             st.markdown(feedback, unsafe_allow_html=True)
         else:
-            feedback = f'<p style="font-family:Courier; color:Red; font-size: 20px;">Incorrect</p>'
+            feedback = f'<p style="font-family:Courier; color:Red; font-size: 20px;"><br>Incorrect</p>'
             st.markdown(feedback, unsafe_allow_html=True)
 		
-flag2='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file2: </p>'
+col1, col2 = st.columns([3, 1])  # Adjust column ratio as needed
+with col1:
+    # Input box for flag2 entry
+    n2 = st.text_input("Enter the flag in file2:")
+
+with col2:
+    # Show feedback for file2
+    if len(n2) > 0:
+        if n2 == 'FLG-456':  # Replace this with the actual flag for file2
+            feedback = f'<p style="font-family:Courier; color:Green; font-size: 20px;"><br>Correct!</p>'
+            st.markdown(feedback, unsafe_allow_html=True)
+        else:
+            feedback = f'<p style="font-family:Courier; color:Red; font-size: 20px;"><br>Incorrect</p>'
+            st.markdown(feedback, unsafe_allow_html=True)
 st.markdown(flag2, unsafe_allow_html=True)
 flag3='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in *file3: </p>'
 st.markdown(flag3, unsafe_allow_html=True)
