@@ -24,6 +24,11 @@ st.markdown(instructions, unsafe_allow_html=True)
 
 flag1='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file1: </p>'
 st.markdown(flag1, unsafe_allow_html=True)
+#write user input to screen
+n=st.text_input("Enter the flag in file1:")
+if len(n) > 0 and n == 'FLG-123':
+	title = f'<p style="font-family:Courier; color:Blue; font-size: 20px;">Welcome {n}</p>'
+	st.markdown(title, unsafe_allow_html=True)
 flag2='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file2: </p>'
 st.markdown(flag2, unsafe_allow_html=True)
 flag3='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in *file3: </p>'
