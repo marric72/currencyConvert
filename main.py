@@ -19,8 +19,9 @@ title = '<p style="font-family:Courier; color:White; font-size: 20px;">Exchange 
 st.markdown(title, unsafe_allow_html=True)
 
 
-instructions='<p style="font-family:Courier; color:Blue; font-size: 30px;">Start on <b>prclab1</b> in the directory <b>/home/faculty/marric72/cs125_CTF</b> <br>Use the commands we learned in class (ex. cd, cat, ls) to navigate and find the flags.  Enter your answers in the boxes to the right of the questions and then hit Check Answers.<br>Happy Hunting! (Hint: Flags look like: FLG-####)<br><br>Sometimes I do not want to give the whole file name, so I use stars in place of characters below.</p>'
-
+instructions='<p style="font-family:Courier; color:Blue; font-size: 20px;">Start on <b>prclab1</b> in the directory <b>/home/faculty/marric72/cs125_CTF</b> <br>Use the commands we learned in class (ex. cd, cat, ls) to navigate and find the flags.  Enter your answers in the boxes to the right of the questions and then hit Check Answers.<br>Happy Hunting! (Hint: Flags look like: FLG-####)<br><br>Sometimes I do not want to give the whole file name, so I use stars in place of characters below.</p>'
+st.markdown(instructions, unsafe_allow_html=True)
+st.markdown(instructions, unsafe_allow_html=True)
 
 #st.write("Pulling data from: https://api.exchangerate-api.com/v4/latest/USD")
 #url = 'https://api.exchangerate-api.com/v4/latest/USD'
