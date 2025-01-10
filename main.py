@@ -17,17 +17,23 @@ instructions='<p style="font-family:Courier; color:Black; font-size: 20px;">Star
 st.markdown(instructions, unsafe_allow_html=True)
 
 
+# Create two columns: one for the input box and the other for feedback
+col1, col2 = st.columns([3, 1])  # You can adjust the width ratio as needed
 
-#flag1='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file1: </p>'
-#st.markdown(flag1, unsafe_allow_html=True)
-#write user input to screen
-n=st.text_input("Enter the flag in file1:")
-if len(n) > 0 and n == 'FLG-123':
-	feedback = f'<p style="font-family:Courier; color:Green; font-size: 20px;">Correct!</p>'
-	st.markdown(feedback, unsafe_allow_html=True)
-elif len(n) > 0:
-	feedback = f'<p style="font-family:Courier; color:Red; font-size: 20px;">Incorrect</p>'
-	st.markdown(feedback, unsafe_allow_html=True)
+with col1:
+    # Input box for flag entry
+    n = st.text_input("Enter the flag in file1:")
+
+with col2:
+    # Show feedback based on the user input
+    if len(n) > 0:
+        if n == 'FLG-123':
+            feedback = f'<p style="font-family:Courier; color:Green; font-size: 20px;">Correct!</p>'
+            st.markdown(feedback, unsafe_allow_html=True)
+        else:
+            feedback = f'<p style="font-family:Courier; color:Red; font-size: 20px;">Incorrect</p>'
+            st.markdown(feedback, unsafe_allow_html=True)
+		
 flag2='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in file2: </p>'
 st.markdown(flag2, unsafe_allow_html=True)
 flag3='<p style="font-family:Courier; color:White; font-size: 20px;">Enter the flag in *file3: </p>'
