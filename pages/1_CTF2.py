@@ -13,7 +13,7 @@ st.markdown(title, unsafe_allow_html=True)
 st.image("computer.png", caption=' ')
 
 
-instructions='<p style="font-family:Courier; color:Black; font-size: 20px;">Start on <b>prclab1</b> in the directory<br> <b>/home/faculty/marric72/cs125_CTF2</b> <br>Use the commands we learned in class to navigate and find the flags.  In some cases, it will be easier to COPY my C programs to your directory so you can compile and run. <br><br>Enter your answers below.  Remember the flag format is FLG-####</p>'
+instructions='<p style="font-family:Courier; color:Black; font-size: 20px;">Start on <b>prclab1</b> in the directory<br> <b>/home/faculty/marric72/cs125_CTF2</b> <br>Use the commands we learned in class to navigate and find the flags.  In some cases, it will be easier to COPY my C programs to your directory so you can compile and run. <br><br>Enter your answers below.  The flag format is FLG-####</p>'
 st.markdown(instructions, unsafe_allow_html=True)
 
 
