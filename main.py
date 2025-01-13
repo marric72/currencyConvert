@@ -23,6 +23,21 @@ questions = [
     ("Enter the flag in file6:", "FLG-135"),
     ("Enter the flag in *file7*:", "FLG-765")
 ]
+# Adding custom CSS to put lines around each row
+css = """
+    <style>
+        .row {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .column {
+            padding: 10px;
+        }
+    </style>
+"""
+st.markdown(css, unsafe_allow_html=True)
 
 for question, correct_flag in questions:
     col1, col2, col3 = st.columns([1, 1, 1])  # Adjust column widths as needed
