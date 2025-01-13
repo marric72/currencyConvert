@@ -29,7 +29,7 @@ questions = [
 for question, correct_flag in questions:
     col1, col2, col3 = st.columns([1, 1, 1])  # Adjust column widths as needed
     
-    #with col1:
+    with col1:
         feedback = f'<p style="font-family:Courier; color:White; font-size: 20px;"><br>{question}</p>'
         st.markdown(feedback, unsafe_allow_html=True)
     
