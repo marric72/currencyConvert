@@ -15,20 +15,21 @@ st.markdown(instructions, unsafe_allow_html=True)
 
 # Create three columns: one for the question, one for the input box, and one for feedback
 questions = [
-    ("<br>Enter the flag in file1:", "FLG-123"),
-    ("<br>Enter the flag in file2:", "FLG-444"),
-    ("<br>Enter the flag in *file3:", "FLG-936"),
-    ("<br>Enter the flag in file4:", "FLG-045"),
-    ("<br>Enter the flag in file5:", "FLG-246"),
-    ("<br>Enter the flag in file6:", "FLG-135"),
-    ("<br>Enter the flag in *file7*:", "FLG-765")
+    ("Enter the flag in file1:", "FLG-123"),
+    ("Enter the flag in file2:", "FLG-444"),
+    ("Enter the flag in *file3:", "FLG-936"),
+    ("Enter the flag in file4:", "FLG-045"),
+    ("Enter the flag in file5:", "FLG-246"),
+    ("Enter the flag in file6:", "FLG-135"),
+    ("Enter the flag in *file7*:", "FLG-765")
 ]
 
 for question, correct_flag in questions:
     col1, col2, col3 = st.columns([1, 1, 1])  # Adjust column widths as needed
 
     with col1:
-        st.write(question)  # Display the question
+        feedback = f'<p style="font-family:Courier; color:White; font-size: 20px;"><br>{question}</p>'
+        st.markdown(feedback, unsafe_allow_html=True)
     
     with col2:
         # Input box for the flag entry
