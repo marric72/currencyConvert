@@ -24,26 +24,13 @@ questions = [
     ("Enter the flag in *file7*:", "FLG-765")
 ]
 # Adding custom CSS to put lines around each row
-css = """
-    <style>
-        .row {
-            border: 1px solid black;
-            padding: 10px;
-            margin: 5px;
-            border-radius: 5px;
-        }
-        .column {
-            padding: 10px;
-        }
-    </style>
-"""
-st.markdown(css, unsafe_allow_html=True)
+
 
 for question, correct_flag in questions:
     col1, col2, col3 = st.columns([1, 1, 1])  # Adjust column widths as needed
 # Add the CSS class 'row' to each row for styling
     with col1:
-        st.markdown(f'<div class="row"><div class="column"><br>{question}</div>', unsafe_allow_html=True)
+        st.markdown(f'<br>{question}', unsafe_allow_html=True)
     
     #with col1:
     #    feedback = f'<p style="font-family:Courier; color:White; font-size: 20px;"><br>{question}</p>'
@@ -62,5 +49,5 @@ for question, correct_flag in questions:
             else:
                 feedback = f'<p style="font-family:Courier; color:Red; font-size: 20px;"><br>Incorrect</p>'
                 st.markdown(feedback, unsafe_allow_html=True)
-# Close the div tag for row styling
-        st.markdown('</div></div>', unsafe_allow_html=True)
+    line=f'<hr>'
+    st.markdown(line, unsafe_allow_html=True)
