@@ -28,13 +28,10 @@ questions = [
 
 for question, correct_flag in questions:
     col1, col2, col3 = st.columns([1, 1, 1])  # Adjust column widths as needed
-# Add the CSS class 'row' to each row for styling
-    with col1:
-        st.markdown(f'<br>{question}', unsafe_allow_html=True)
     
     #with col1:
-    #    feedback = f'<p style="font-family:Courier; color:White; font-size: 20px;"><br>{question}</p>'
-    #    st.markdown(feedback, unsafe_allow_html=True)
+        feedback = f'<p style="font-family:Courier; color:White; font-size: 20px;"><br>{question}</p>'
+        st.markdown(feedback, unsafe_allow_html=True)
     
     with col2:
         # Input box for the flag entry
