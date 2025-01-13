@@ -41,10 +41,13 @@ st.markdown(css, unsafe_allow_html=True)
 
 for question, correct_flag in questions:
     col1, col2, col3 = st.columns([1, 1, 1])  # Adjust column widths as needed
-
+# Add the CSS class 'row' to each row for styling
     with col1:
-        feedback = f'<p style="font-family:Courier; color:White; font-size: 20px;"><br>{question}</p>'
-        st.markdown(feedback, unsafe_allow_html=True)
+        st.markdown(f'<div class="row"><div class="column"><br>{question}</div>', unsafe_allow_html=True)
+    
+    #with col1:
+    #    feedback = f'<p style="font-family:Courier; color:White; font-size: 20px;"><br>{question}</p>'
+    #    st.markdown(feedback, unsafe_allow_html=True)
     
     with col2:
         # Input box for the flag entry
@@ -59,3 +62,5 @@ for question, correct_flag in questions:
             else:
                 feedback = f'<p style="font-family:Courier; color:Red; font-size: 20px;"><br>Incorrect</p>'
                 st.markdown(feedback, unsafe_allow_html=True)
+# Close the div tag for row styling
+        st.markdown('</div></div>', unsafe_allow_html=True)
