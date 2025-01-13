@@ -25,7 +25,7 @@ questions = [
 ]
 
 for question, correct_flag in questions:
-    col1, col2, col3 = st.columns([3, 2, 2])  # Adjust column widths as needed
+    col1, col2, col3 = st.columns([1, 1, 1])  # Adjust column widths as needed
 
     with col1:
         st.write(question)  # Display the question
@@ -38,8 +38,8 @@ for question, correct_flag in questions:
         # Provide feedback based on the user input
         if len(user_input) > 0:
             if user_input == correct_flag:
-                feedback = f'<p style="font-family:Courier; color:Green; font-size: 20px;">Correct!</p>'
+                feedback = f'<p style="font-family:Courier; color:Green; font-size: 20px;"><br>Correct!</p>'
                 st.markdown(feedback, unsafe_allow_html=True)
             else:
-                feedback = f'<p style="font-family:Courier; color:Red; font-size: 20px;">Incorrect</p>'
+                feedback = f'<p style="font-family:Courier; color:Red; font-size: 20px;"><br>Incorrect</p>'
                 st.markdown(feedback, unsafe_allow_html=True)
