@@ -32,7 +32,7 @@ for question, correct_flag in questions:
     
     with col2:
         # Input box for the flag entry
-        user_input = st.text_input(f"Your answer for {question}", key=question)
+        user_input = st.text_input(f" ", key=question)
 
     with col3:
         # Provide feedback based on the user input
