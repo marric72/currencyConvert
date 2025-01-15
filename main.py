@@ -19,7 +19,7 @@ questions = [
     ("Enter the flag in file2:", "FLG-444"),
     ("Enter the flag in *file3:", "FLG-936"),
     ("Enter the flag in file4:", "FLG-045"),
-    ("Enter the flag in file5:", "FLG-246"),
+    ("Enter the flag in *file5:", "FLG-246"),
     ("Enter the flag in file6:", "FLG-135"),
     ("Enter the flag in *file7*:", "FLG-765")
 ]
