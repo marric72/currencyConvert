@@ -4,13 +4,25 @@ st.set_page_config(
     page_title="Capture The Flag",
     page_icon="🚩",
 )
+# Add custom CSS for the <hr> tag
+st.markdown("""
+    <style>
+        hr {
+            border: 0;
+            height: 2px;
+            background-color: #ff6347; /* Change to any color you prefer */
+            width: 50%;
+            margin: 20px 0;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 # Write text to the screen with HTML markup
 title = '<p style="font-family:Courier; color:White; font-size: 30px;">prclab1 Capture the Flag</p>'
 st.markdown(title, unsafe_allow_html=True)
 st.image("computer.png", caption=' ')
 
-instructions = '<p style="font-family:Courier; color:Blue; font-size: 20px;">Use Linux command line only. <br> Start on <b>prclab1</b> in the directory<br> <b>/home/faculty/marric72/cs125_CTF</b> <br>Use the commands we learned in class (ex. cd, cat, ls) to navigate and find the flags. Enter your answers in the boxes to the right of the questions and then hit Enter.<br><br>Happy Hunting! (Hint: Flags look like: FLG-###)<br><br>Sometimes I do not want to give the whole filename, so I use stars in place of characters below.</p>'
+instructions = '<p style="font-family:Courier; color:Yellow; font-size: 20px;">Use Linux command line only. <br> Start on <b>prclab1</b> in the directory<br> <b>/home/faculty/marric72/cs125_CTF</b> <br>Use the commands we learned in class (ex. cd, cat, ls) to navigate and find the flags. Enter your answers in the boxes to the right of the questions and then hit Enter.<br><br>Happy Hunting! (Hint: Flags look like: FLG-###)<br><br>Sometimes I do not want to give the whole filename, so I use stars in place of characters below.</p>'
 st.markdown(instructions, unsafe_allow_html=True)
 
 # Create three columns: one for the question, one for the input box, and one for feedback
