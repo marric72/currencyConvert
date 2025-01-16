@@ -8,7 +8,7 @@ level = "warning"
 primaryColor = "#0000FF"
 backgroundColor = "#000000"
 secondaryBackgroundColor = "#F0F0F0"
-textColor = "#000000"
+textColor = "#CBC3E3"
 font="sans serif"
 
 [browser]
