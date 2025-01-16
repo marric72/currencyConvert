@@ -10,7 +10,7 @@ st.markdown("""
         hr {
             border: 0;
             height: 2px;
-            background-color: #ff6347; /* Change to any color you prefer */
+            background-color: #000000; /* Change to any color you prefer */
             width: 50%;
             margin: 20px 0;
         }
