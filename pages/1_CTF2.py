@@ -22,7 +22,7 @@ title = '<p style="font-family:Courier; color:White; font-size: 30px;">prclab1 C
 st.markdown(title, unsafe_allow_html=True)
 st.image("computer.png", caption=' ')
 
-instructions = '<p style="font-family:Courier; color:Yellow; font-size: 20px;">Use Linux commands to find the flags. <br> Start on <b>prclab1</b> in the directory<br> <b>/home/faculty/marric72/cs125_CTF2</b> <br>Enter your answers in the boxes to the right of the questions and then hit Enter.<br><br>Happy Hunting! (Hint: Flags look like: FLG-####)<br><br>Sometimes I do not want to give the whole filename, so I use stars in place of characters below.</p>'
+instructions = '<p style="font-family:Courier; color:Yellow; font-size: 20px;">Use Linux commands to find the flags. <br> Start on <b>prclab1</b> in the directory<br> <b>/home/faculty/marric72/cs125_CTF2</b> <br>Enter your answers in the boxes to the right of the questions and then hit Enter.<br><br>Happy Hunting! (Hint: Flags look like: FLG-####)</p>'
 st.markdown(instructions, unsafe_allow_html=True)
 
 # Create three columns: one for the question, one for the input box, and one for feedback
