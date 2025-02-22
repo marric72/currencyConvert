@@ -27,15 +27,15 @@ st.markdown(instructions, unsafe_allow_html=True)
 
 # Create three columns: one for the question, one for the input box, and one for feedback
 questions = [
-    ("What is the repo author's name? ", "FLG-1010"),
-    ("What is the name of the repo? ", "FLG-1111"),
-    ("What will print when hello.cpp is compiled and run? ", "FLG-1313"),
-    ("What used to print when hello.cpp was compiled and run in a previous version of the code? ", "FLG-3344"),
-    ("How many time was hello.cpp updated? ", "FLG-7654"),
-    ("How many branches are there? ", "FLG-1234"),
-    ("What comment did m8rmclaren make on the latest pull request? ", "FLG-5521"),
-    ("What is the name of the deleted file? ", "FLG-8097"),
-     ("To clone this repo, your would type: git clone _______ ", "FLG-9997")
+    ("What is the name of the repo? ", "ScavengerHunt"),
+    ("What is the repo author's name? ", "marric72"),
+    ("What will print when hello.cpp is compiled and run? ", "Hello Class."),
+    ("What did the original version of hello.cpp print? ", "Hello World!"),
+    ("How many time was hello.cpp updated? ", "3"),
+    ("How many branches are there? ", "2"),
+    ("What comment did m8rmclaren make on the latest pull request? ", "Nice addition!"),
+    ("What is the name of the deleted file? ", "wordsOfWisdom"),
+     ("To clone this repo, your would type: git clone _______ ", "https://github.com/marric72/ScavengerHunt.git")
 ]
 # Adding custom CSS to put lines around each row
 
