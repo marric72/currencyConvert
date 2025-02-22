@@ -27,17 +27,15 @@ st.markdown(instructions, unsafe_allow_html=True)
 
 # Create three columns: one for the question, one for the input box, and one for feedback
 questions = [
-    ("Enter the flag in file0:", "FLG-1010"),
-    ("Enter the flag in file1(warning: this is too big to open, do NOT use nano):", "FLG-1111"),
-    ("The flag is the only difference between file1 and file2:", "FLG-1313"),
-    ("Run switchFlag.c with correct input to generate a flag:", "FLG-3344"),
-    ("Run whileLoopFlag.c to generate a flag:", "FLG-7654"),
-    ("Run doWhileLoopFlag.c to generate the flag:", "FLG-1234"),
-    ("Run forLoopFlag.c with the correct input to generate a flag:", "FLG-5521"),
-    ("Get line 125 from lotsOfFlags.txt:", "FLG-8097"),
-     ("If sorted alphabetically, this flag is the last in flag.txt:", "FLG-9997"),
-    ("Enter the flag in file3:", "FLG-6543"),
-     ("Compile and run donut.c (with gcc -lm donut.c):", "FLG-1019")
+    ("What is the repo author's name? ", "FLG-1010"),
+    ("What is the name of the repo? ", "FLG-1111"),
+    ("What will print when hello.cpp is compiled and run? ", "FLG-1313"),
+    ("What used to print when hello.cpp was compiled and run in a previous version of the code? ", "FLG-3344"),
+    ("How many time was hello.cpp updated? ", "FLG-7654"),
+    ("How many branches are there? ", "FLG-1234"),
+    ("What comment did m8rmclaren make on the latest pull request? ", "FLG-5521"),
+    ("What is the name of the deleted file? ", "FLG-8097"),
+     ("To clone this repo, your would type: git clone _______ ", "FLG-9997")
 ]
 # Adding custom CSS to put lines around each row
 
