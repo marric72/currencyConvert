@@ -35,7 +35,7 @@ questions = [
     ("How many branches are there? ", "2"),
     ("What comment did m8rmclaren make on the latest pull request? ", "Nice addition!"),
     ("What is the name of the deleted file? ", "wordsOfWisdom"),
-     ("To clone this repo, your would type: git clone _______ ", "https://github.com/marric72/ScavengerHunt.git")
+     ("To clone this repo, type: git clone _______ ", "https://github.com/marric72/ScavengerHunt.git")
 ]
 # Adding custom CSS to put lines around each row
 
