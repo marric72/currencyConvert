@@ -22,7 +22,7 @@ title = '<p style="font-family:Courier; color:White; font-size: 30px;">GitHub Sc
 st.markdown(title, unsafe_allow_html=True)
 st.image("computer.png", caption=' ')
 
-instructions = '<p style="font-family:Courier; color:Yellow; font-size: 20px;">Use this link for the scavenger hunt: <a href="https://github.com/marric72/ScavengerHunt">https://github.com/marric72/ScavengerHunt</a> <br></p>'
+instructions = '<p style="font-family:Courier; color:Yellow; font-size: 20px;">***Use this link for the scavenger hunt: <a href="https://github.com/marric72/ScavengerHunt">https://github.com/marric72/ScavengerHunt</a> <br></p>'
 st.markdown(instructions, unsafe_allow_html=True)
 
 # Create three columns: one for the question, one for the input box, and one for feedback
