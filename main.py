@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="Capture The Flag ",
+    page_title="The Capture The Flag ",
     page_icon="🚩",
 )
 # Add custom CSS for the <hr> tag
