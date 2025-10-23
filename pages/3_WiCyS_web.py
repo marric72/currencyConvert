@@ -58,13 +58,6 @@ with col2:
 # Add login button centered
 st.write("")
 login_button = st.button("Login")
-st.title("Button Example")
-# Create a button with the label "Click me!"
-if st.button("Click me!"):
-    st.write("The button was clicked!")
-else:
-    st.write("The button has not been clicked yet.")
-
 
 # Login logic
 if login_button:
