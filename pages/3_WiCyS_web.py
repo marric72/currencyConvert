@@ -15,6 +15,23 @@ st.markdown("""
             width: 50%;
             margin: 20px 0;
         }
+        /* Change button color */
+        div.stButton > button:first-child {
+            background-color: #FF4B4B; /* Red color */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.6em 1.2em;
+            font-size: 16px;
+            font-family: Courier, monospace;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effect */
+        div.stButton > button:first-child:hover {
+            background-color: #FF1C1C;
+            transform: scale(1.05);
+        }
     </style>
 """, unsafe_allow_html=True)
 
