@@ -1,526 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prescott Western Heritage Center</title>
+import streamlit as st
+import streamlit.components.v1 as components
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
+st.set_page_config(
+    page_title="Prescott Cowboy Adventure",
+    page_icon="🤠",
+    layout="centered"
+)
 
-body{
-    background:#efe6d3;
-    overflow-x:hidden;
-}
+# Session state
+if "avatar" not in st.session_state:
+    st.session_state.avatar = "teddy.png"
 
-/* Cowboy Hat Button */
-#hatButton{
-    position:fixed;
-    top:50%;
-    left:15px;
-    width:60px;
-    height:60px;
-    border:none;
-    background:none;
-    cursor:pointer;
-    font-size:42px;
-    z-index:1001;
-    transition:.3s;
-}
+if "page" not in st.session_state:
+    st.session_state.page = "Home"
 
-#hatButton:hover{
-    transform:scale(1.1);
-}
 
-/* Menu */
-#menu{
-    position:fixed;
-    top:0;
-    left:-280px;
-    width:280px;
-    height:100%;
-    background:#6b4423;
-    color:white;
-    transition:.35s;
-    box-shadow:5px 0 15px rgba(0,0,0,.35);
-    z-index:1000;
-}
+# Navigation
+st.sidebar.title("🤠 Cowboy Menu")
 
-#menu.open{
-    left:0;
-}
+choice = st.sidebar.radio(
+    "Choose Adventure",
+    [
+        "Select Avatar",
+        "Prescott Trivia",
+        "Cowboy Roundup Game"
+    ]
+)
 
-#closeBtn{
-    float:right;
-    margin:15px;
-    border:none;
-    background:none;
-    color:white;
-    font-size:28px;
-    cursor:pointer;
-}
 
-#menu h2{
-    padding:60px 25px 20px;
-    border-bottom:1px solid rgba(255,255,255,.3);
-}
+# Avatar Page
+if choice == "Select Avatar":
 
-#menu ul{
-    list-style:none;
-    margin-top:20px;
-}
+    st.header("Choose Your Cowboy")
 
-#menu li{
-    border-bottom:1px solid rgba(255,255,255,.15);
-}
+    avatar = st.radio(
+        "Select Avatar",
+        [
+            "Theodore Roosevelt",
+            "Annie Oakley",
+            "Wyatt Earp"
+        ]
+    )
 
-#menu a{
-    display:block;
-    padding:18px 25px;
-    color:white;
-    text-decoration:none;
-    font-size:18px;
-    transition:.25s;
-}
+    if avatar == "Theodore Roosevelt":
+        st.session_state.avatar = "teddy.png"
 
-#menu a:hover{
-    background:#8b5a2b;
-    padding-left:35px;
-}
+    elif avatar == "Annie Oakley":
+        st.session_state.avatar = "annie.png"
 
-main{
-    padding:120px 40px;
-    text-align:center;
-}
-#centerImage{
-    display:block;
-    margin:40px auto;
-    max-width:350px;
-    width:80%;
-    height:auto;
-}
-#content{
-    margin-top:10px;
-    font-size:22px;
-    color:#5a3b1d;
-}
+    elif avatar == "Wyatt Earp":
+        st.session_state.avatar = "wyatt.png"
 
-.question{
-    text-align:left;
-    max-width:700px;
-    margin:25px auto;
-    padding:15px;
-    background:#f8f1df;
-    border-radius:8px;
-}
 
-#gradeQuiz{
-    padding:12px 30px;
-    font-size:18px;
-    background:#8b5a2b;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-}
+    st.image(
+        st.session_state.avatar,
+        width=250
+    )
 
-#gradeQuiz:hover{
-    background:#a66a35;
-}
 
-#score{
-    margin-top:25px;
-    color:#5a3b1d;
-    font-size:28px;
-}
+# Trivia Page
+elif choice == "Prescott Trivia":
 
-#gameArea{
+    st.header("🤠 Prescott Trivia")
 
-position:relative;
+    questions = {
+        "Prescott was Arizona's first territorial capital.": 
+            ["True", "False"],
 
-width:800px;
-height:550px;
+        "What famous street is known for historic saloons?":
+            ["Whiskey Row", "Main Street", "Gold Street"],
 
-margin:auto;
+        "Which lake is near Prescott?":
+            ["Watson Lake", "Roosevelt Lake", "Lake Pleasant"],
 
-background:#d8c39a;
+        "Which forest surrounds Prescott?":
+            ["Prescott National Forest",
+             "Coconino National Forest"],
 
-border:4px solid #6b4423;
-
-border-radius:12px;
-
-overflow:hidden;
-
-}
-
-#gameStats{
-
-font-size:24px;
-
-padding:15px;
-
-font-weight:bold;
-
-}
-
-#horse{
-
-position:absolute;
-
-width:90px;
-
-cursor:pointer;
-
-transition:left .25s, top .25s;
-
-}
-
-#horse:hover{
-
-transform:scale(1.08);
-
-}
-
-#gameOver{
-
-position:absolute;
-
-top:50%;
-left:50%;
-
-transform:translate(-50%,-50%);
-
-text-align:center;
-
-}
-
-#playAgain{
-
-margin-top:20px;
-
-padding:12px 28px;
-
-font-size:20px;
-
-background:#8b5a2b;
-
-color:white;
-
-border:none;
-
-border-radius:8px;
-
-cursor:pointer;
-
-}
-</style>
-</head>
-
-<body>
-
-<button id="hatButton" title="Open Menu">🤠</button>
-
-<nav id="menu">
-
-    <button id="closeBtn">✕</button>
-
-    <h2>Menu</h2>
-
-    <ul>
-        <li><a href="#" data-page="Select Avatar">Select Avatar</a></li>
-        <li><a href="#" data-page="Prescott Trivia">Prescott Trivia</a></li>
-        <li><a href="#" data-page="Cowboy Roundup Game">Cowboy Roundup Game</a></li>
-    </ul>
-
-</nav>
-
-<main>
-
-<!-- <h1>Welcome to Western Heritage Museum</h1> -->
-
-<div id="content">
-Click the cowboy hat to open the navigation menu.
-</div>
- <img src="teddy.png" id="centerImage" alt="Teddy"> 
-
-</main>
-
-<script>
-const hatButton = document.getElementById("hatButton");
-const menu = document.getElementById("menu");
-const closeBtn = document.getElementById("closeBtn");
-const content = document.getElementById("content");
-
-hatButton.addEventListener("click", () => {
-    menu.classList.add("open");
-});
-
-closeBtn.addEventListener("click", () => {
-    menu.classList.remove("open");
-});
-
-document.querySelectorAll("#menu a").forEach(item => {
-
-    item.addEventListener("click", function(e){
-
-        e.preventDefault();
-
-        const page = this.dataset.page;
-
-if(page === "Select Avatar"){
-
-    content.innerHTML = `
-        <h2>Select Your Avatar</h2>
-
-        <button class="avatarBtn" data-img="teddy.png">
-            Theodore Roosevelt
-        </button>
-
-        <button class="avatarBtn" data-img="annie.png">
-            Annie Oakley
-        </button>
-
-        <button class="avatarBtn" data-img="wyatt.png">
-            Wyatt Earp
-        </button>
-    `;
-
-    document.querySelectorAll(".avatarBtn").forEach(btn => {
-
-    btn.addEventListener("click", function(){
-
-        // Change the avatar image
-        document.getElementById("centerImage").src = this.dataset.img;
-
-        // Replace the buttons with a confirmation message
-        content.innerHTML = `
-            <h2>Avatar Selected!</h2>
-            <p>Your adventure is ready to begin.</p>
-        `;
-
-    });
-
-});
-
-}
-else if(page === "Prescott Trivia"){
-
-    content.innerHTML = `
-
-    <h2>🤠 Prescott Trivia Challenge</h2>
-    <p>Answer all five questions and see how well you know Prescott!</p>
-
-    <form id="triviaForm">
-
-    <div class="question">
-    <p><strong>1. Prescott was the first territorial capital of Arizona.</strong></p>
-
-    <label><input type="radio" name="q1" value="a"> True</label><br>
-    <label><input type="radio" name="q1" value="b"> False</label>
-    </div>
-
-    <div class="question">
-    <p><strong>2. What famous street is known for its historic saloons?</strong></p>
-
-    <label><input type="radio" name="q2" value="a"> Whiskey Row</label><br>
-    <label><input type="radio" name="q2" value="b"> Main Street</label><br>
-    <label><input type="radio" name="q2" value="c"> Frontier Road</label><br>
-    <label><input type="radio" name="q2" value="d"> Gold Street</label>
-    </div>
-
-    <div class="question">
-    <p><strong>3. Which large lake is located just a few miles from downtown Prescott?</strong></p>
-
-    <label><input type="radio" name="q3" value="a"> Lake Pleasant</label><br>
-    <label><input type="radio" name="q3" value="b"> Watson Lake</label><br>
-    <label><input type="radio" name="q3" value="c"> Roosevelt Lake</label><br>
-    <label><input type="radio" name="q3" value="d"> Saguaro Lake</label>
-    </div>
-
-    <div class="question">
-    <p><strong>4. Prescott is surrounded by which national forest?</strong></p>
-
-    <label><input type="radio" name="q4" value="a"> Coconino National Forest</label><br>
-    <label><input type="radio" name="q4" value="b"> Prescott National Forest</label><br>
-    <label><input type="radio" name="q4" value="c"> Kaibab National Forest</label><br>
-    <label><input type="radio" name="q4" value="d"> Apache-Sitgreaves National Forest</label>
-    </div>
-
-    <div class="question">
-    <p><strong>5. Prescott's annual rodeo is known as:</strong></p>
-
-    <label><input type="radio" name="q5" value="a"> Arizona Stampede</label><br>
-    <label><input type="radio" name="q5" value="b"> World's Oldest Rodeo</label><br>
-    <label><input type="radio" name="q5" value="c"> Cowboy Days</label><br>
-    <label><input type="radio" name="q5" value="d"> Frontier Roundup</label>
-    </div>
-
-    <br>
-
-    <button type="button" id="gradeQuiz">
-        Submit Quiz
-    </button>
-
-    </form>
-
-    <h3 id="score"></h3>
-    `;
-
-    document.getElementById("gradeQuiz").addEventListener("click", function(){
-
-        const answers = {
-            q1: "a",
-            q2: "a",
-            q3: "b",
-            q4: "b",
-            q5: "b"
-        };
-
-        let score = 0;
-
-        for(const question in answers){
-
-            const selected = document.querySelector(
-                `input[name="${question}"]:checked`
-            );
-
-            if(selected && selected.value === answers[question]){
-                score++;
-            }
-
-        }
-
-        document.getElementById("score").innerHTML =
-            `🏆 You scored <strong>${score}</strong> out of 5!`;
-
-    });
-
-}
-else if(page === "Cowboy Roundup Game"){
-
-content.innerHTML = `
-
-<div id="gameArea">
-
-<h2>🐎 Cowboy Roundup - click on the horse</h2>
-
-<div id="gameStats">
-Time: <span id="time">30</span> sec |
-Horses Collected:
-<span id="score">0</span>
-</div>
-
-<img src="horse.png" id="horse">
-
-<div id="gameOver"></div>
-
-</div>
-
-`;
-
-startRoundupGame();
-
-}
-else{
-
-    content.innerHTML =
-    "<h2>" + page + "</h2><br>This section is under construction.";
-
-}
-
-menu.classList.remove("open");
-
-        menu.classList.remove("open");
-
-    });
-
-});
-function startRoundupGame(){
-
-let score = 0;
-let timeLeft = 30;
-
-const horse = document.getElementById("horse");
-const scoreLabel = document.getElementById("score");
-const timerLabel = document.getElementById("time");
-const gameOver = document.getElementById("gameOver");
-const gameArea = document.getElementById("gameArea");
-
-// Reset the game display
-gameOver.innerHTML = "";
-scoreLabel.innerHTML = "0";
-timerLabel.innerHTML = "30";
-
-
-horse.style.display = "block";
-
-function moveHorse(){
-
-    const x = Math.random() * (gameArea.clientWidth-120);
-    const y = 70 + Math.random() * (gameArea.clientHeight-180);
-
-    horse.style.left = x + "px";
-    horse.style.top = y + "px";
-
-}
-
-moveHorse();
-
-horse.onclick=function(){
-
-    score++;
-
-    scoreLabel.innerHTML=score;
-
-    moveHorse();
-
-};
-
-const moveTimer=setInterval(moveHorse,600);
-
-const countdown=setInterval(function(){
-
-    timeLeft--;
-
-    timerLabel.innerHTML=timeLeft;
-
-    if(timeLeft<=0){
-
-        clearInterval(moveTimer);
-        clearInterval(countdown);
-
-        horse.style.display="none";
-
-        gameOver.innerHTML=`
-        <h2>Time's Up!</h2>
-        <h3>You rounded up ${score} horses!</h3>
-
-        <button id="playAgain">
-            Play Again
-        </button>
-        `;
-
-        document.getElementById("playAgain").addEventListener("click", function(){
-
-    // Remove the game over message and button
-    gameOver.innerHTML = "";
-
-    // Restart the game
-    startRoundupGame();
-
-});
-
+        "Prescott's famous rodeo is called:":
+            ["World's Oldest Rodeo",
+             "Arizona Stampede"]
     }
 
-},1000);
+    answers = [
+        "True",
+        "Whiskey Row",
+        "Watson Lake",
+        "Prescott National Forest",
+        "World's Oldest Rodeo"
+    ]
 
-}
-</script>
+    user_answers=[]
 
-</body>
-</html>
+    for q, options in questions.items():
+
+        user_answers.append(
+            st.radio(q, options)
+        )
+
+
+    if st.button("Submit Quiz"):
+
+        score=0
+
+        for user, correct in zip(user_answers, answers):
+            if user == correct:
+                score += 1
+
+        st.success(
+            f"You scored {score}/5!"
+        )
+
+
+# Cowboy Game
+elif choice == "Cowboy Roundup Game":
+
+    st.header("🐎 Cowboy Roundup")
+
+    components.html(
+        """
+        <div id="game">
+        <h2>Round up the horses!</h2>
+        <p>Game version goes here.</p>
+        </div>
+        """,
+        height=600
+    )
